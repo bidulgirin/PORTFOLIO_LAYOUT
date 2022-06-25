@@ -30,7 +30,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 try {
 
     if (count($_POST) == 0 && !isset($_POST['username']) && !isset($_POST['email']) && !isset($_POST['message'])) {
-        throw new \Exception('Form is empty');
+        throw new Exception('Form is empty'); //Exception 앞에 \ 없앰
     }
 
     // an email address that will be in the From field of the email.
@@ -52,7 +52,7 @@ try {
     mail($sendTo, $subject, $message, $headers);
 
     $responseArray = array('type' => 'success', 'message' => $okMessage);
-} catch (\Exception $e) {
+} catch (Exception $e) { //Exception 앞에 \ 없앰
     $responseArray = array('type' => 'danger', 'message' => $errorMessage);
 }
 
