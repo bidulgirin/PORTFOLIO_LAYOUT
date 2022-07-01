@@ -43,7 +43,7 @@ export default function me() {
 	let mixer;
 	const gltfLoader = new GLTFLoader();
 	gltfLoader.load(
-		'/blender/ME.glb',
+		'./blender/ME.glb', 
 		gltf => {
 			// console.log(gltf.scene.children[0]);
 			const me = gltf.scene.children[0];

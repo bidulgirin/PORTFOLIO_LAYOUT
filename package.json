@@ -19,5 +19,7 @@
     "url": "https://github.com/bidulgirin/portfolio_layout_2022_05/issues"
   },
   "homepage": "https://github.com/bidulgirin/portfolio_layout_2022_05#readme",
-  "dependencies": {}
+  "dependencies": {
+    "pushin": "^5.0.2"
+  }
 }

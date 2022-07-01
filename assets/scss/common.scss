@@ -8,7 +8,7 @@ html{
         scroll-behavior: auto;
     }
   }
-  @import 'node_modules/pushin/dist/pushin.css';
+  @import '/node_modules/pushin/dist/pushin.css';
   
   body {
     margin: 0 auto;
@@ -34,8 +34,7 @@ html{
     color: #333;
   }
   
-  .article_wrap {
-  }
+
   #container {
     animation: fadein 5s;
     -moz-animation: fadein 5s; /* Firefox */
@@ -98,8 +97,7 @@ html{
     background: url('../img/main/abstract-5533509_640.png');
     background-size : cover;
   }
-  #main_wrap {
-  }
+
   #main_wrap  .main_img img{
    width:100%;
   }
@@ -108,7 +106,7 @@ html{
   }
   /* 자기소개파트 */
   #itd_wrap {
-    background: rgb(73, 73, 73);
+    background: rgb(27, 27, 27);
     
   }
   

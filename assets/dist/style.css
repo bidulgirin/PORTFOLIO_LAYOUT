@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* 전체 */
-@import 'node_modules/pushin/dist/pushin.css';
+@import '/node_modules/pushin/dist/pushin.css';
 html {
   scroll-behavior: smooth;
 }
@@ -106,7 +106,7 @@ a {
 
 /* 자기소개파트 */
 #itd_wrap {
-  background: rgb(73, 73, 73);
+  background: rgb(27, 27, 27);
 }
 
 /* flex_wrap */
