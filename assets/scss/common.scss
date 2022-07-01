@@ -1,0 +1,182 @@
+/* 전체 */
+html{
+    scroll-behavior: smooth; 
+    
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+  }
+  @import 'node_modules/pushin/dist/pushin.css';
+  
+  body {
+    margin: 0 auto;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .article_wrap {
+  }
+  #container {
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
+    animation-fill-mode: forwards;
+    
+  }
+  
+  @keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+      opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  @-o-keyframes fadein { /* Opera */
+    from {
+      opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  
+  #main_wrap,
+  #carr_wrap,
+  #itd_wrap,
+  #contact_wrap {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  
+  /* 메인 파트 */
+  #main_wrap {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    height:100vh;
+    margin:0 auto;
+    background: #333;
+    background: url('../img/main/abstract-5533509_640.png');
+    background-size : cover;
+  }
+  #main_wrap {
+  }
+  #main_wrap  .main_img img{
+   width:100%;
+  }
+  #main_wrap  .main_des{
+    font-size:50px;
+  }
+  /* 자기소개파트 */
+  #itd_wrap {
+    background: rgb(73, 73, 73);
+    
+  }
+  
+  /* flex_wrap */
+  #flex_wrap {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  #flex_wrap .img_slider,
+  #flex_wrap .mypoint {
+    width: 45%;
+  }
+  #flex_wrap div.img_slider {
+    position: relative;
+    height: 3000px;
+  }
+  #flex_wrap div.img_slider > div {
+    height: 1000px;
+    width: 100%;
+    position: sticky;
+    top: 20%;
+    text-align: center;
+  }
+  #flex_wrap div.img_slider > div img {
+    display: none;
+    background: pink;
+    width: 100%;
+    height: 400px;
+  }
+  #flex_wrap div.img_slider > div img.on {
+    display: block;
+    background: red;
+    transition: all 0.5s;
+  }
+  
+  #flex_wrap div.mypoint > div {
+    background: rgb(255, 232, 167);
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    margin-bottom:30px;
+    overflow:hidden;
+  }
+  
+  /* 이력파트 */
+  #carr_wrap {
+    background: rgb(158, 158, 158);
+  }
+  #carr_wrap .myPoint{
+     width:80%;
+     margin:0 auto;
+  
+  }
+  #carr_wrap .myPoint_desc{
+    display:flex;
+    justify-content: center;
+  }
+  #carr_wrap a{
+    width:50%;
+  }
+  #carr_wrap img{
+    width:100%;
+    display:block;
+  }
+  /* 포트폴리오파트 */
+  #portfolio_wrap {
+    background: rgb(209, 209, 209);
+  }
+  
+  

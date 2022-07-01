@@ -1,0 +1,137 @@
+
+
+/* 하단 고정 메뉴 */
+.fixed_navi {
+    z-index: 2;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+  .ClickMe , .ClickMe2 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+    line-height:47px;
+    background: rgb(255, 255, 255);
+    box-shadow:1px 1px 5px rgba(0, 0, 0, 0.348);
+    text-align:center;
+    align-items:center;
+    cursor: pointer;
+    transition:all 0.5s;
+    /*깜빡거리는 커서 없앰*/
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+  .ClickMe2{
+    transition:all 0.5s;
+    display:none;
+    background: tomato;
+  }
+  
+  .fixed_navi:focus{
+    outline:none;
+  }
+  
+  .fixed_navi ul{
+    display: none;
+  }
+  .fixed_navi ul li {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    
+  }
+  @keyframes child1{
+    0%{bottom: 0px;
+      right: 0px;}
+    
+    100%{
+      bottom: 300px;
+      right: 0px;}
+  }
+  @keyframes child2{
+    0%{bottom: 0px;
+      right: 0px;}
+    
+    100%{
+      bottom: 240px;
+    right: 0px;}
+  }
+  @keyframes child3{
+    0%{bottom: 0px;
+      right: 0px;}
+    
+    100%{
+      bottom: 180px;
+      right: 0px;}
+  }
+  @keyframes child4{
+    0%{bottom: 0px;
+      right: 0px;}
+    
+    100%{
+      bottom: 120px;
+      right: 0px;}
+  }
+  @keyframes child5{
+    0%{bottom: 0px;
+      right: 0px;}
+    
+    100%{
+      bottom: 60px;
+      right: 0px;}
+  }
+  .fixed_navi ul li:hover a{
+    text-shadow:1px 1px 2px rgb(255, 255, 255);
+  }
+  .fixed_navi ul li:nth-child(1) {
+    bottom: 300px;
+    right: 0px;
+    background: rgb(255, 128, 128);
+    animation: child1 1s ;
+  }
+  .fixed_navi ul li:nth-child(2) {
+    bottom: 240px;
+    right: 0px;
+    background: rgb(244, 255, 88);
+    animation: child2 1s ;
+  }
+  
+  .fixed_navi ul li:nth-child(3) {
+    bottom: 180px;
+    right: 0px;
+    background: rgb(255, 174, 137);
+    animation: child3 1s ;
+  }
+  
+  .fixed_navi ul li:nth-child(4) {
+    bottom: 120px;
+    right: 0px;
+    background: rgb(100, 136, 255);
+    animation: child4 1s ;
+  }
+  
+  .fixed_navi ul li:nth-child(5) {
+    bottom: 60px;
+    right: 0px;
+    background: rgb(188, 106, 255);
+    animation: child5 1s ;
+    
+  }
+  
+  .fixed_navi ul li a {
+    text-align:center;
+    padding-top:12px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display:block;
+  }
+  
