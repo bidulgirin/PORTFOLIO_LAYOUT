@@ -3,8 +3,8 @@ let closeButton = document.querySelector('.ClickMe2');
 let menuWrap = document.querySelector('.fixed_navi ul');
 let menuElements = document.querySelectorAll('.fixed_navi ul li');
 let container = document.querySelector('#container');
-console.log(menuElements.length);
 
+console.log('%c'+ menuElements.length,`background: ${"#FF0000"}` , `color: ${"#FFFFFF"}`  );
 
 // var randomColor = Math.floor(Math.random()*16777215).toString(16);
 // fixed_navi.style.background= "#" + randomColor;

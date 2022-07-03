@@ -7,7 +7,12 @@
     <title>포트폴리오 </title>
     <!-- css모듈화 -->
     
-    <link rel="stylesheet" type="text/css" href="./assets/dist/style.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\style.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\common.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\contact.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\main_contents.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\fixed_navi.css">
+    <link rel="stylesheet" type="text/css" href="assets\dist\loading.css">
     
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -98,16 +103,41 @@
           <path d="m362.386719 120.878906c-10.644531 0-19.304688-8.660156-19.304688-19.304687 0-10.640625 8.660157-19.300781 19.304688-19.300781 10.640625 0 19.300781 8.660156 19.300781 19.300781 0 10.644531-8.660156 19.304687-19.300781 19.304687zm0-23.605468c-2.375 0-4.304688 1.929687-4.304688 4.300781 0 2.371093 1.929688 4.304687 4.304688 4.304687 2.371093 0 4.300781-1.933594 4.300781-4.304687 0-2.371094-1.929688-4.300781-4.300781-4.300781zm0 0" />
       </svg>
     </div>
+    <!-- 마우스-->
+    <div class="circle"></div>
+    <script>
+      const circle = document.querySelector(".circle");
+
+      document.addEventListener("mousemove", (e) => {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+          circle.style.left = mouseX + 'px';
+          circle.style.top = mouseY + 'px';
+      });
+  </script>
    <div id="container">
     
        <div id="main_wrap">
              
                 <!--이건좀고민해봐야겠음 연락페이지부분에 넣을까-->
-               <a style="position:fixed; right: 10px; top:10px; font-size:30px; z-index:20; color:rgb(0, 0, 255); font-weight:bold;" href="assets\homepage\webpack-js-html\dist\index.html" style="font-size:30px;">threeJs 실험</a> 
-               <div class="main_img">
-                <div class="main_des">
-                 
-                </div>
+               <a style="position:fixed; right: 10px; top:10px; font-size:30px; z-index:20; color:rgb(0, 0, 255); font-weight:bold;" href="assets\homepage\webpack-js-html\dist\index.html" style="font-size:30px;">
+                threeJs 실험
+               </a> 
+               <div class="main_background">
+                  <div class="main_left_side">
+                    <div class="main_des">
+                     <p>
+                      Only in water can you learn to swim
+                     </p> 
+                    </div>
+                  </div>
+                
+                  <div class="main_right_side">
+                      <p>
+                        ME <br> ↓
+                      </p>
+                      
+                  </div>
                </div> 
                
               

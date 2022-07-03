@@ -13,6 +13,11 @@ html {
 body {
   margin: 0 auto;
   padding: 0;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 li {
@@ -36,11 +41,25 @@ a {
   color: #333;
 }
 
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ee6c4d;
+  transform: translate(-50%, -50%);
+}
+
 #container {
   animation: fadein 5s;
-  -moz-animation: fadein 5s; /* Firefox */
-  -webkit-animation: fadein 5s; /* Safari and Chrome */
-  -o-animation: fadein 5s; /* Opera */
+  -moz-animation: fadein 5s;
+  /* Firefox */
+  -webkit-animation: fadein 5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 5s;
+  /* Opera */
   animation-fill-mode: forwards;
 }
 
@@ -52,7 +71,8 @@ a {
     opacity: 1;
   }
 }
-@-moz-keyframes fadein { /* Firefox */
+@-moz-keyframes fadein {
+  /* Firefox */
   from {
     opacity: 0;
   }
@@ -60,7 +80,8 @@ a {
     opacity: 1;
   }
 }
-@-webkit-keyframes fadein { /* Safari and Chrome */
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
   from {
     opacity: 0;
   }
@@ -68,7 +89,8 @@ a {
     opacity: 1;
   }
 }
-@-o-keyframes fadein { /* Opera */
+@-o-keyframes fadein {
+  /* Opera */
   from {
     opacity: 0;
   }
@@ -82,26 +104,6 @@ a {
 #contact_wrap {
   width: 100%;
   height: 100vh;
-}
-
-/* 메인 파트 */
-#main_wrap {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  background: #333;
-  background: url("../img/main/abstract-5533509_640.png");
-  background-size: cover;
-}
-
-#main_wrap .main_img img {
-  width: 100%;
-}
-
-#main_wrap .main_des {
-  font-size: 50px;
 }
 
 /* 자기소개파트 */
@@ -184,5 +186,3 @@ a {
 #portfolio_wrap {
   background: rgb(209, 209, 209);
 }
-
-/*# sourceMappingURL=common.css.map */
