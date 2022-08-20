@@ -1,0 +1,177 @@
+//---컬러지정
+@import "./color.scss";
+
+//--- itd 스타일
+#itd_wrap {
+  scroll-snap-align: start;
+  position: relative;
+  height: 100vh;
+}
+#itd_wrap .itd_background{
+  position: absolute;
+  background:$mainColor;
+  z-index: -1;
+  top:0;
+  left:0;
+  width:100%;
+  height: 1000vh;
+  overflow: hidden;
+  user-select: none; 
+  
+}
+.down_element_ani{
+  animation: down_element 10s forwards;
+}
+@keyframes down_element {
+  0%{
+    top:0;
+  }
+  100%{
+    top:1000vh;
+    filter: blur(4px);
+  }
+}
+#itd_wrap .itd_b_video{
+  width:100%;
+  background-color: white;
+  position: absolute;
+  z-index: -1;
+  top:0;
+  left:0;
+  overflow: hidden;
+  user-select: none; 
+  background-size: cover;
+  opacity: 0.4;
+  filter: blur(13px) hue-rotate(140deg) ;
+  
+}
+#itd_wrap .itd_b_video > video{
+  width:100%; // 세로긴영상일때 ON
+  object-fit: fill;
+}
+
+.itd_title{
+  margin-top:20px;
+  padding:10px 0 10px 20px;
+  border-top:1px solid $baseBlackColor;
+  border-bottom:1px solid $baseBlackColor;
+  font-size: 50px;
+  text-align: left;
+  color:whitesmoke;
+}
+#itd_wrap .itd_sub_title{
+  //수트 폰트
+  font-family: 'SUIT-Medium';
+  margin:0 auto;
+  padding:20px;
+  //background:$baseWhiteColor;
+  box-sizing: border-box;
+  text-align: left;
+  color:$baseBlackColor;
+}
+//--- itd 콘텐츠 
+.itd_contents{
+  height: 60%;
+  margin:0 auto;
+  display:flex;
+  flex-wrap: wrap; 
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  text-align:center;
+  padding-bottom: 30px;
+}
+//알
+.itd_contents .egg{
+  width:260px;
+  text-align: center;
+}
+.itd_contents .egg > p {
+  font-size: 20px;
+  color:rgba(255, 255, 255, 0.387);
+}
+.itd_contents .egg > img{
+  width:100%;
+  display:block;
+
+}
+$itdNumber:3;//itd 콘텐츠 개수가 몇개니
+.itd{
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+  align-items: center;
+  width:calc(100%/$itdNumber);
+  padding:0 10px ;
+  box-sizing: border-box;
+  transition: all .3s;
+  display:none;
+}
+.itd:hover img{
+  animation:wriggling .7s ease-in Infinite Alternate;
+}
+//itd 아이콘 이미지 레이아웃 스타일
+.itd_icon_img{
+  width:100%;
+  padding-bottom:10px;
+}
+.itd_icon_img > img{
+  width:90%;
+  transition:all .3s;
+}
+
+// itd 설명글 레이아웃 스타일
+
+.itd_des{
+//수직중앙정렬
+// display:grid;
+// align-items:center; 
+  //수트 폰트
+  font-family: 'SUIT-Medium';
+  width:90%;
+  height:auto;
+  padding:14px;
+  border-radius:20px;
+  text-align: left;
+  overflow:hidden;
+  color:whitesmoke;
+  //background:$baseWhiteColor;
+}
+.itd_des_title{
+  //바른공군체 Bold
+  font-family: 'ROKAFSansBold';
+  width:100%;
+}
+
+//--- javascript 연결된 클래스
+
+.show_egg{
+  animation: bigger 1s forwards;  
+
+}
+@keyframes bigger {
+  0%{transform: scale(0,0);  opacity: 0;}
+  100%{transform: scale(1,1); opacity:1;}
+}
+
+@media screen and(max-width:900px){
+  .itd{
+    width:90%;
+  }
+  .itd_icon_img{
+    width:60%;
+    margin:0 auto;
+  }
+  #itd_wrap .itd_b_video > video{
+    height:300vh;
+    object-fit: fill;
+  }
+ 
+}
+@media screen and(max-height:800px){
+  #itd_wrap {
+    height: auto;
+  }
+ 
+}
+

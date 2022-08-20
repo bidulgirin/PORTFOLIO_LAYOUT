@@ -1,178 +1,397 @@
-/* 전체 */
-html{
-    scroll-behavior: smooth; 
+//---컬러지정
+@import "./color.scss";
+
+// --- prefers-reduced-motion: reduce 저사양 디바이스 웹접근성을 위한 애니메이션 동작 줄이기
+@media (prefers-reduced-motion: reduce) {
+  html {
+      scroll-behavior: smooth;
     
   }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-  }
-  @import '/node_modules/pushin/dist/pushin.css';
-  
-  body {
-    margin: 0 auto;
-    padding: 0;
-    -ms-overflow-style: none;
-  }
- 
-
-
-  ::-webkit-scrollbar {
-  display: none;
-  }
-  li {
-    list-style: none;
-  }
-  ul,
-  li,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-  .circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #ee6c4d;
-    transform: translate(-50%, -50%);
+}
+// ---폰트 스타일
+@font-face {
+  //바른공군체 Bold
+  font-family: 'ROKAFSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-  #container {
-    animation: fadein 5s;
-    -moz-animation: fadein 5s; /* Firefox */
-    -webkit-animation: fadein 5s; /* Safari and Chrome */
-    -o-animation: fadein 5s; /* Opera */
-    animation-fill-mode: forwards;
-    
-  }
+@font-face {
+  //강한공군체 Medium
+  font-family: 'ROKAFSlabSerifMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  //한림고딕체
+  font-family: 'HallymGothic-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  //수트 폰트
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+// ---폰트 end 
+
+//--- 전역 스타일 지정
+html, body {
+  //x 스크롤 방지
+  overflow-x: hidden;
+  //전역폰트
+  font-family: 'ROKAFSlabSerifMedium';
+  //기본레이아웃 설정
+  margin: 0 auto;
+  padding: 0;
+  //커서
+  cursor:none;
+  // 부드럽게 스크롤 
+  scroll-behavior: smooth;
+  //컨텐츠 밖 배경
+  background:rgb(21, 21, 21);
+}
+
+li {
+  list-style: none;
+}
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color:$baseDarkGrayColor;
+}
+a:hover{
+  cursor:none;
+}
+
+
+//-- 컨텐츠 레이아웃 스타일
+#wrapper{
+  position:relative;
+  max-width: 1920px;
+  min-width: 360px;
+  margin: 0 auto;
+  overflow:hidden;
+  letter-spacing: normal;
+  word-break: keep-all;
+  //스크롤 css 
+  scroll-snap-type: y mandatory; /* 부모 적용 */
+}
+
+
+//--- 커서 스타일, 커서 클릭 모션 스타일
+#cursor,.cursor_event,.cursor_follower,.circle1, .circle2 {
+  position:absolute;
+  z-index: 9999999;
+  // 커서 자체를 유저가 클릭하지 않도록 함 
+  user-select: none; 
+  // 손가락 모양 나타나지 않도록 함
+  pointer-events: none;
+  // 바탕색과 커서 색상이 겹쳐도 보일수있도록 함
+  mix-blend-mode: difference; 
+}
+//--- 커서 스타일
+
+#cursor{
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  background:$mainColor; 
+  pointer-events: none;
   
-  @keyframes fadein {
-    from {
-        opacity: 0;
+
+}
+
+//--- 커서 따라오는 물체 스타일
+.cursor_follower { 
+  width: 40px; 
+  height: 40px;  
+  border:1px solid $mainColor; 
+  border-radius: 50%; 
+  transform: translate(2px, 2px); 
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  user-select: none;
+  }
+  a:hover #cursor{
+    transition:all .5s;
+    width:300px;
+    height:300px;
+  }
+  //-- 커서 클릭 모션 스타일
+  .cursor_event{
+    box-sizing: border-box;
+  }
+  .circle1, .circle2{
+    border:2px solid $mainColor;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+
+  }
+  //-- 커서 클릭 모션 스타일 확장 애니메이션
+  .expand{
+    animation:expand .3s;
+  }
+  .expand2{
+    animation:expand2 .3s 1s;
+  }
+  //-- circle1 확장 애니메이션
+  @keyframes expand{
+  0%{
+      transform: scale(0,0); 
     }
-    to {
-        opacity: 1;
+    100%{
+      transform: scale(1.4,1.4); 
+      opacity: 0.3;
+
     }
   }
-  @-moz-keyframes fadein { /* Firefox */
-    from {
+  //-- circle2 에 적용될 확장 애니메이션
+  @keyframes expand2{
+    0%{
+        transform: scale(0,0); 
+  
+      }
+      100%{
+        transform: scale(1,1); 
+        opacity: 0.3;
+  
+      }
+    }
+//--- 커서 스타일 end
+
+//--- 헤더 스타일
+#header{
+  position:fixed;
+  top:0;
+  width:100%;
+  max-width: 1920px;
+  z-index: 100;
+}
+#header > nav{
+ /* 헤더의 네비게이션 */
+  position: -webkit-sticky;
+  position:sticky;
+  top:0px;
+  background:$baseBlackColorOpacity80;
+  }
+#header > nav > ul{
+  display:flex;
+  justify-content: right;
+  padding:10px 0 10px 0;
+}
+#header > nav > ul li{
+ margin-right:5px;
+  box-sizing: border-box;
+}
+#header > nav > ul li > a{
+  //수트 폰트
+  font-family: 'SUIT-Medium';
+  font-size: 14px;
+  padding:4px;
+  color:$baseWhiteColor;
+}
+#header nav ul li > a:hover{
+  transition: all .3s;
+  color:$baseLightGrayColor;
+}
+
+#header nav ul li > a > i {
+  /* 헤더 아이콘 스타일 */
+  padding-right:2px;
+}
+//--- 헤더 end
+
+
+//--- 메인 컨텐츠 레이아웃 스타일
+#container {
+  overflow:hidden;
+}
+
+
+//--- 헬퍼 클래스
+.title_ly{
+  /* 제목 레이아웃 */
+  text-align:center;
+  padding-top:30px;
+  padding-bottom:20px;
+  font-size: 24px;
+}
+.title_ly > span{
+  //수트 폰트
+  font-family: 'SUIT-Medium';
+  font-size: 18px;
+  color:$baseDarkGrayColor;
+}
+.cursor_not_blink{
+  /* 포커스 커서 뜨지 않게 (컨텐츠에 커서 깜빡거림 없앰) */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Opera and Firefox */
+ }
+ .overflow_hidden{
+  overflow: hidden;
+ }
+.loading_animation{
+  /*부드럽게 나타나는 애니메이션 효과*/
+  animation: fadein 5s;
+  -moz-animation: fadein 5s; /* Firefox */
+  -webkit-animation: fadein 5s; /* Safari and Chrome */
+  -o-animation: fadein 5s; /* Opera */
+  animation-fill-mode: forwards;
+  overflow:hidden;
+}
+
+//--- 브라우저 별 [부드럽게 나타나는] 애니메이션
+@keyframes fadein {
+  from {
       opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
   }
-  @-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-      opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  to {
+      opacity: 1;
   }
-  @-o-keyframes fadein { /* Opera */
-    from {
-      opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+    opacity: 0;
   }
-  
-  #main_wrap,
-  #carr_wrap,
-  #itd_wrap,
-  #contact_wrap {
-    width: 100%;
-    height: 100vh;
+  to {
+      opacity: 1;
   }
-  
-  
-  /* 자기소개파트 */
-  #itd_wrap {
-    background: rgb(27, 27, 27);
-    
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+    opacity: 0;
   }
-  
-  /* flex_wrap */
-  #flex_wrap {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  to {
+      opacity: 1;
   }
-  #flex_wrap .img_slider,
-  #flex_wrap .mypoint {
-    width: 45%;
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+    opacity: 0;
   }
-  #flex_wrap div.img_slider {
-    position: relative;
-    height: 3000px;
+  to {
+      opacity: 1;
   }
-  #flex_wrap div.img_slider > div {
-    height: 1000px;
-    width: 100%;
-    position: sticky;
-    top: 20%;
-    text-align: center;
+}
+
+// 흔들흔들 애니메이션
+.wriggling{
+  transition: all .2s ease;
+  animation:wriggling .7s ease-in Infinite Alternate;
+}
+
+@keyframes wriggling {
+  0%{  
+  transform: rotate(+10deg); }
+  100%{
+  transform: rotate(-20deg);}
+}
+@-moz-keyframes wriggling { /* Firefox */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+@-webkit-keyframes wriggling { /* Safari and Chrome */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+@-o-keyframes wriggling { /* Opera */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+
+//깨지는 모션
+
+.break{
+  transition: all .2s ease;
+  animation:break 1s ease-in forwards;
+}
+
+@keyframes break {
+  0%{  
+  transform: skew(0deg, 0deg); }
+  10%{transform: scale(2 , 1);}
+  40%{transform: scale(1 , 2);}
+  50%{transform: scale(1 , 1);}
+  90%{transform: scale(2 , 2);}
+  100%{
+    transform:scale(1 , 1);
+    opacity:.5;
   }
-  #flex_wrap div.img_slider > div img {
+}
+@-moz-keyframes break { /* Firefox */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+@-webkit-keyframes break { /* Safari and Chrome */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+@-o-keyframes break { /* Opera */
+  0%{  
+    transform: rotate(+10deg); }
+  100%{
+    transform: rotate(-20deg);}
+}
+
+    //--- 브라우저 별 [부드럽게 나타나는] 애니메이션 end
+//--- 헬퍼 클래스 end
+//태블릿
+@media screen and(max-width:1023px){
+  header{
     display: none;
-    background: pink;
-    width: 100%;
-    height: 400px;
   }
-  #flex_wrap div.img_slider > div img.on {
-    display: block;
-    background: red;
-    transition: all 0.5s;
+}
+//마우스가 없는 모바일 기기
+@media (pointer:coarse) {
+  header{
+    display: none;
   }
-  
-  #flex_wrap div.mypoint > div {
-    background: rgb(255, 232, 167);
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    margin-bottom:30px;
-    overflow:hidden;
-  }
-  
-  /* 이력파트 */
-  #carr_wrap {
-    background: rgb(158, 158, 158);
-  }
-  #carr_wrap .myPoint{
-     width:80%;
-     margin:0 auto;
-  
-  }
-  #carr_wrap .myPoint_desc{
-    display:flex;
-    justify-content: center;
-  }
-  #carr_wrap a{
-    width:50%;
-  }
-  #carr_wrap img{
-    width:100%;
-    display:block;
-  }
-  /* 포트폴리오파트 */
-  #portfolio_wrap {
-    background: rgb(209, 209, 209);
-  }
-  
-  
+}
+// 폰트를 굵게 강조 + 줄바꿈 안되게
+.bold_txt{
+  font-weight: bold;
+  white-space: nowrap;
+}
+// 포인트 border 
+.under_border_y{
+  border-bottom: 2px solid rgb(210, 158, 26);
+}
+// 기본 컨텐츠 사이즈 
+.contents_ly{
+  width:90%;
+  max-width:1200px;
+  margin: 0 auto;
+}
